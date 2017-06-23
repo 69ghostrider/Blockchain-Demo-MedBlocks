@@ -29,42 +29,56 @@ type SimpleChaincode struct {
 }
 var EVENT_COUNTER = "event_counter"
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-	var A, B string    // Entities
-	var Aval, Bval int // Asset holdings
-	var err error
-
-	if len(args) != 4 {
-		return nil, errors.New("Incorrect number of arguments. Expecting 4")
+	
+	key := UserPrefix + args[0]
+        
+	if len(args) != 2 {
+		return nil, errors.New("Incorrect number of arguments. Expecting 2")
 	}
 
-	// Initialize the chaincode
-	A = args[0]
-	Aval, err = strconv.Atoi(args[1])
+	err := stub.PutState(key, []byte(args[1]))
 	if err != nil {
-		return nil, errors.New("Expecting integer value for asset holding")
+		fmt.Errorf(err.Error())
+		return nil,err
 	}
-	B = args[2]
-	Bval, err = strconv.Atoi(args[3])
-	if err != nil {
-		return nil, errors.New("Expecting integer value for asset holding")
-	}
-	fmt.Printf("Aval = %d, Bval = %d\n", Aval, Bval)
+	fmt.Printf("store user:%s sucessfully", key)
+	return nil,nil
+// 	var A, B string    // Entities
+// 	var Aval, Bval int // Asset holdings
+// 	var err error
 
-	// Write the state to the ledger
-	err = stub.PutState(A, []byte(strconv.Itoa(Aval)))
-	if err != nil {
-		return nil, err
-	}
+// 	if len(args) != 4 {
+// 		return nil, errors.New("Incorrect number of arguments. Expecting 4")
+// 	}
 
-	err = stub.PutState(B, []byte(strconv.Itoa(Bval)))
-	if err != nil {
-		return nil, err
-	}
-        err = stub.PutState(EVENT_COUNTER, []byte("1"))
-	if err != nil {
-		return nil, err
-	}
-	return nil, nil
+// 	// Initialize the chaincode
+// 	A = args[0]
+// 	Aval, err = strconv.Atoi(args[1])
+// 	if err != nil {
+// 		return nil, errors.New("Expecting integer value for asset holding")
+// 	}
+// 	B = args[2]
+// 	Bval, err = strconv.Atoi(args[3])
+// 	if err != nil {
+// 		return nil, errors.New("Expecting integer value for asset holding")
+// 	}
+// 	fmt.Printf("Aval = %d, Bval = %d\n", Aval, Bval)
+
+// 	// Write the state to the ledger
+// 	err = stub.PutState(A, []byte(strconv.Itoa(Aval)))
+// 	if err != nil {
+// 		return nil, err
+// 	}
+
+// 	err = stub.PutState(B, []byte(strconv.Itoa(Bval)))
+// 	if err != nil {
+// 		return nil, err
+// 	}
+//         err = stub.PutState(EVENT_COUNTER, []byte("1"))
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	return nil, nil
 }
 
 // Transaction makes payment of X units from A to B
@@ -73,7 +87,9 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 		// Deletes an entity from its state
 		return t.delete(stub, args)
 	}
-
+	if function == "write" {
+		return t.write(stub,args)
+	}
 	var A, B string    // Entities
 	var Aval, Bval int // Asset holdings
 	var X int          // Transaction value
@@ -157,6 +173,35 @@ func (t *SimpleChaincode) delete(stub shim.ChaincodeStubInterface, args []string
 	}
 
 	return nil, nil
+}
+func (t *SimpleChaincode) write (stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+                var err error
+           
+                fmt.Println("running write()")
+ 
+                if len(args) != 4{
+                                return nil, errors.New("Incorrect number of arguments. Expecting 4. name of the key and value to set")
+                }
+ 
+                m_patient := &Patient{}
+                m_patient.Username = args[0]
+                m_patient.Name = args[1]
+                m_patient.DescriptionOfCurrentAilment= args[2]
+                 m_patient.Allergies=args[3]
+ 
+                var key = args[0]
+ 
+                value, err := json.Marshal(&m_patient)
+ 
+                if err != nil {
+                                return nil, err
+                }
+ 
+                err = stub.PutState(key, []byte(value)) //write the variable into the chaincode state
+                if err != nil {
+                                return nil, err
+                }
+                return nil, nil
 }
 
 // Query callback representing the query of a chaincode
