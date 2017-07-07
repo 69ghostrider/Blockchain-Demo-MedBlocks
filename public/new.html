@@ -1,0 +1,263 @@
+<html>
+<head>
+
+<title>register</title>
+<link rel="stylesheet" href="public/css/bootstrap.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<link rel="stylesheet" href="bootstrap.css">
+ 
+</head>
+
+<body background="img/img8.jpg">
+
+
+<div class="container">
+	<div class="row">
+    <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
+        <div id="wid-id-0">
+            <header role="heading">
+                <h2>Very Basic Wizard Example </h2>
+            </header>
+            <!-- widget div-->
+            <div role="content">
+                <!-- widget content -->
+                <div class="widget-body">
+
+                    <div class="row">
+                        <form id="wizard-1" novalidate="novalidate">
+                            <div id="bootstrap-wizard-1" class="col-sm-12">
+                                <div class="form-bootstrapWizard">
+                                                                       <ul class="bootstrapWizard form-wizard">
+                                        <li class="active" data-target="#step1">
+                                            <a href="#tab1" data-toggle="tab" class="active"> <span class="step">1</span> <span class="title">Personal Details</span> </a>
+                                        </li>
+                                        <li data-target="#step2" class="">
+                                            <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Lab Details</span> </a>
+                                        </li>
+                                        <li data-target="#step3" class="">
+                                            <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Prescription Details</span> </a>
+                                        </li>
+                                        <li data-target="#step4">
+                                            <a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Save Details</span> </a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab1">
+                                        <br>
+                                       
+                                        <div class="form-actions">
+										<form>
+<div class="container" style="color: #FFF; text-shadow: 2px 2px #626262; text-align: center;"><br>
+              <h1>General Details</h1>
+              <h4>Please fill out the form below</h4>
+            </div>
+          
+          <div class="container">
+          <div class="jumbotron" style="margin-top:20px; border-radius: 0px; background-color: #FCFCFC;">
+          <div class="row">
+        <div class="col-md-4">
+              <form>
+        <div class="form-group">
+            <span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
+            <span class="sr-only"></span>
+            <label for="inputName">Name</label>
+            <input type="Name" class="form-control" id="inputNAME" placeholder="Please enter your full name">
+        </div>
+		 <div class="form-group">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="">Allergies(If any)</label>
+            <textarea class="form-control" rows="2" id="message" placeholder=""></textarea>
+        </div>
+       
+            </form>
+              
+        
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <ul class="pager wizard no-margin">
+
+                                                        <li class="next">
+                                                            <a href="#tab2" class="btn btn-lg txt-color-darken"> Next </a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab2">
+                                        <br>
+                                       
+                                        <div class="form-actions">
+																				<form>
+<div class="container" style="color: #FFF; text-shadow: 2px 2px #626262; text-align: center;"><br><br>
+              <h1>Laboratory Details</h1>
+              <h4>Please fill out the form below</h4>
+            </div>
+
+          <div class="container">
+          <div class="jumbotron" style="margin-top:20px; border-radius: 0px; background-color: #FCFCFC;">
+          <div class="row">
+        <div class="col-md-4">
+              <form>
+        <div class="form-group">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="inputName">Name of Lab</label>
+            <input type="Name" class="form-control" id="inputNAME" placeholder="">
+        </div>
+        
+		 <div class="form-group">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="">Impressions</label>
+            <textarea class="form-control" rows="2" id="message" placeholder=""></textarea>
+        </div>
+		
+            </form>
+              </div>
+        
+              <div class="col-md-4">
+            <form>
+        <div class="form-group ">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="date">Date</label>
+            <input type="text" class="form-control" id="date" placeholder="DD/MM/YYYY">
+        </div>
+            </form>
+			<div class="form-group">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="inputName">Report Type</label>
+            <input type="report" class="form-control" rows="2" id="inputNAME" placeholder="">
+        </div>
+              </div>
+        
+              <div class="col-md-4" style="border-left: 2px solid #ccc">
+                  
+              </div>
+              
+      </div>
+              <div class="row">
+                  <div class="col-md-8">
+                  <form>
+        <div class="form-group">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="">Findings</label>
+                <textarea class="form-control" rows="4" id="message" placeholder=""></textarea>
+        
+                </form>
+                           
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                     <ul class="pager wizard no-margin">
+                                                        <li class="previous">
+                                                            <a href="#tab1" class="btn btn-lg btn-default"> Previous </a>
+                                                        </li>
+                                                        <li class="next disabled">
+                                                            <a href="#tab3" class="btn btn-lg txt-color-darken"> Next </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab3">
+                                        <br>
+                                        <h3><strong>Step 3</strong> - Domain Setup</h3>
+                                        <div class="form-actions">
+										<form>
+<div class="container" style="color: #FFF; text-shadow: 2px 2px #626262; text-align: center;"><br><br>
+              <h1>Prescription Details</h1>
+              <h4>Please fill out the form below</h4>
+            </div>
+          
+          <div class="container">
+          <div class="jumbotron" style="margin-top:20px; border-radius: 0px; background-color: #FCFCFC;">
+          <div class="row">
+        <div class="col-md-4">
+              <form>
+        <div class="form-group">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="inputName">Disease</label>
+            <input type="Name" class="form-control" id="inputNAME" placeholder="">
+        </div>
+		
+		 <div class="form-group">
+            <span class="" aria-hidden="true" ></span>
+            <span class=""></span>
+            <label for="">Medication(Ongoing)</label>
+            <textarea class="form-control" rows="4" id="message" placeholder=""></textarea>
+        </div>
+       
+            </form>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                     <ul class="pager wizard no-margin">
+                                                        <li class="previous">
+                                                            <a href="#tab2" class="btn btn-lg btn-default"> Previous </a>
+                                                        </li>
+                                                        <li class="next disabled">
+                                                            <a href="#tab4" class="btn btn-lg txt-color-darken"> Next </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab4">
+                                        <br><br><br>
+                                        <h3><strong>Step 4</strong> - Save Form</h3>
+                                        <br>
+                                        <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Complete</strong></h1>
+                                        <h4 class="text-center">Click submit to finish</h4>
+                                        <br>
+                                        <br>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                     <ul class="pager wizard no-margin">
+                                                        <li class="previous">
+                                                            <a href="#tab3" class="btn btn-lg btn-default"> Previous </a>
+                                                        </li>
+                                                        <li >
+                                                            <a href="patient.html" class="btn btn-lg btn-default"> Submit </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+
+    </article>
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 {
    "chainName":"hello-world",
    "deployWaitTime":"60",
+   "hsbn_cert_path": "/root/",
+   "x86_cert_path": "/certs/peer/cert.pem",
    "user": {
 	"username": "JohnDoe",
         "affiliation" : "group1"
@@ -9,24 +11,47 @@
       "chaincodePath":"chaincode",
       "functionName":"init",
       "args":[
-         "a",
-         "100",
-         "b",
+         "aishwarya",
          "200"
       ]
    },
    "invokeRequest":{
-      "functionName":"invoke",
+      "functionName":"enter_patient_details",
       "args":[
-         "a",
-         "b",
-         "10"
+         "josh",
+         "11/11/11",
+         "cold",
+         "dust"
+      ]
+   },
+ "invokeRequest2":{
+      "functionName":"enter_patient_prescription",
+      "args":[
+         "josh",
+         "disease1",
+         "med1",
+         "dur1"
+      ]
+   },
+   "invokeRequest3":{
+      "functionName":"enter_lab_details",
+      "args":[
+         "josh",
+         "labname",
+         "disease1",
+         "22/02/2017",
+         "impr",
+         "findings"
       ]
    },
    "queryRequest":{
-      "functionName":"query",
+      "functionName":"get_patient_details",
       "args":[
-         "a"
+         "josh"
       ]
    }
+  
+   
 }
+
+

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Blocks</title>
+	<style type="text/css">
+		body{
+			background-image: url("public/images/back1.jpg") ;
+			background-repeat: no-repeat;
+			background-position: center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+			background-attachment: fixed;
+
+		}
+		input[type='text'],label{
+		padding:2px;
+		margin:5px;
+		}
+ 
+
+		img{
+			border:2px solid black;
+			height:100px;
+			width:100px;
+		}
+
+		#blocks{
+			margin-left:2%;
+			margin-right:2%;
+			margin-top:2%
+			padding:2px;
+			height:140px;
+			width:100%;
+			overflow:auto;
+			display: inline-block;
+			overflow:invisible;
+			overflow-x: hidden;
+		}
+	
+		#blocks div p{
+			color:aqua;
+			font-size:30;
+			font-weight:bold;
+			margin-left:40%;
+		}
+		#grantAccess{
+			margin-left:7%;
+			margin-top:7%;
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+		
+		#grantAccess:hover{
+		 background-color: #008CBA;
+         color: white;
+		}
+		
+		#data{
+			height: auto;
+			width: 500px;
+			border:2px solid black;
+			margin-left: 30%;
+			background-color: white;
+			opacity: 0.8;
+			border-radius: 10px;
+		}
+		#access{
+			height: auto;
+			width: 500px;
+			border:2px solid #f2f2f2;
+			border-radius: 15px;
+			margin-left: 30%;
+			background-color: white;
+			opacity: 0.8;
+			box-shadow: 2px 2px 2px yellow;
+		}
+		#ok{
+			width:100%;
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 16px 25px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+		#data div{
+			border: 2px solid black;
+			
+			margin-top:5%;
+			margin-left:5%;
+			margin-right:5%;
+			margin-bottom:5%;
+			font-weight :bold;
+		}
+		#access table{
+			margin-top:5%;
+			margin-left:5%;
+			margin-right:5%;
+			margin-bottom:5%;
+			font-weight :bold;	
+		}
+		#approve{
+		margin-top:20px;
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+		#close{
+		margin-top:20px;
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+		
+</head>
+<body>
+
+<script >
+		$(document).ready(function()
+		{
+			//var height=0;
+			
+			var user = <%- user%>
+			$("#privatekey").val(user.name);
+			
+			//alert(med_arr[1].id);
+			//alert(med_arr[1].name);
+			// var pro_len=med_arr.length;
+
+			// alert(pro_len);
+			// //var op="";
+			
+					
+			// for(var n=0;n<pro_len;n++){
+			// 	//op=op+"<option value='"+med_arr[n].name+"'>"+med_arr[n].name+"</option>";
+			// 	$('#med_provider').append('"<option value='"+med_arr[n].name+"'>"+med_arr[n].name+"</option>"');
+			// 	//$('#med_provider').append('<option value=1>My option</option>');
+			// }
+			// //alert(op);
+			// //$("#med_provider").html(op);
+
+
+	
+
+			// //alert("Name:"+med_arr);
+
+			//var pri=JSON.stringify(user);
+			//var pro_det = JSON.stringify(med_arr);
+			
+				var height=((user.prescriptions).length);
+				
+				$("#header").append("<p>Current Block Height: "+(height)+"</p>");
+				$("#header p").css({"font-weight": "bold","font-size": "30px","color" :"aqua","margin-left": "35%","margin-top":"2%"});
+				height=Number(height);
+				//<div class="col-md-1" id="1"><img id="i1" src="images/hexa3.png" /><p id="p1"></p></div>
+				for(var k=1;k<=height;k++){
+				    var j=k;
+					var divid=j;
+					var imgid="i"+j;
+					var pid="p"+j;
+					//alert(j+" div: "+divid+"imgid: "+imgid+"pid: "+pid+"k: "+k);
+					$("#blocks").append("<div class='col-md-1' id="+divid+"><img id="+imgid+" src='public/images/hexa3.png'/><p id="+pid+">"+j+"</p></div>");
+						
+				}
+				
+				
+			//alert("Name:"+pro_det[1])
+
+			$("#ok").click(function()  //on click of this hide that pop up page
+			{
+				$("#data").hide();
+				$(this).hide();
+			});
+			$("#close").click(function()  //onclick of this remove that whole grant access block
+			{
+				$("#access").hide();
+				$("#approve").hide();
+				$("#grantAccess").show();
+				$(this).hide();
+			});
+			$("#approve").click(function()  //when you click approve hide that access form and again show that grant access button
+			{
+				$("#access").hide();
+				$("#grantAccess").show();
+
+				var userToAssign=$('#provider').val();      //now take the data from that grant form 
+				var userToView=localStorage.getItem('username'); 
+				//alert(userToView);                          //alert those inputs              
+				var objTosend={                              //make an obj of that data
+					userToView:userToView,
+					userToAssign:userToAssign,
+					key:key
+				}
+				//alert(JSON.stringify(objTosend));
+				$.ajax({                                     
+					url:'/grant',							//url to which you want to send request
+					type:'POST',                            
+					contentType:'application/json',         //The content type used when sending data to the server. Default is: "application/x-www-form-urlencoded"
+					async:true,                             //A Boolean value indicating whether the request should be handled asynchronous or not. Default is true
+					data:JSON.stringify(objTosend),         //Specifies data to be sent to the server
+					success:function(data){					//A function to be run when the request succeeds
+						if(data==true){
+							alert("true");
+						}
+						else{
+							alert(data);
+						}
+					}
+				})
+
+
+				$(this).hide();
+				
+			});
+			$("#grantAccess").click(function()
+			{
+				$("#approve").show();
+				$("#access").show();
+				$("#close").show();			
+				$(this).hide();
+			});
+			$("#blocks").click(function(event)
+			{
+			var tagg=event.target.tagName;
+			//alert("clicked: "+tagg)
+			var tar=event.target.id;
+			//alert(tar);
+			var tar1="#"+tar;
+			var pval=("tar1:nth-child(3)").val;
+				var BlockNum="";
+				var txt="";
+				id=(Number($(this).closest('div').attr('id')));   //return the value of the attribute id that is present in img inside div(in short divs id)
+				var bnum=tar.replace("i", "");
+				BlockNum=bnum;
+				//alert(BlockNum);
+
+				var rem=BlockNum%12;
+				var ram=rem*100;
+				var pix=ram+"px";
+				//alert(pix);
+
+				$("#data").css("border","2px solid black").show();
+				if(rem==0){
+					$("#data").css({marginLeft: "1000px"}).show();
+				}
+				else{
+					$("#data").css({marginLeft: pix}).show();
+				}
+				
+				$("#ok").show();
+				
+				
+						//var data = new Array();
+		        		var fn="";
+						var gd="";
+						var lab="";
+						var pres="";
+						var vacc="";
+						var tr="";
+		
+				
+						var disease=(user.prescriptions[BlockNum-1].disease);
+						var medication=(user.prescriptions[BlockNum-1].medication);
+						var duration=(user.prescriptions[BlockNum-1].duration);
+						
+						var name_lab=(user.lab_details[BlockNum-1].name_lab);
+						var report_type=(user.lab_details[BlockNum-1].report_type);
+						var date=(user.lab_details[BlockNum-1].date);
+						var impressions=(user.lab_details[BlockNum-1].impressions);
+						var findings=(user.lab_details[BlockNum-1].findings);
+						var uname=user.name;
+
+
+					
+							$("#data #init").html(" ");
+							fn=fn+"Name: "+user.name+"&nbsp &nbsp";
+							fn=fn+"Date Of Birth: "+user.dob+"<br/>";
+							
+							$("#data #header2").html(fn);
+							//$("#privatekey").val(user.name);
+							
+							/*gd=gd+"<legend align='center'>General Details:</legend>";
+							gd=gd+"Description of Current Ailment: "+user.currentproblem+"<br/>";
+							gd=gd+"Allergies: "+user.allergies+"<br/>";
+							$("#data #gendetails").html(gd);*/
+							
+							pres=pres+"<legend align='center'>Prescription Details:</legend>";
+							pres=pres+"Disease: "+disease+"<br/>";
+							pres=pres+"Medication:  "+medication+"<br/>";
+							pres=pres+"Duration: "+duration+"<br/>";
+							$("#data #Presdetails").html(pres);
+							
+							
+							
+							lab=lab+"<legend align='center'>Lab Details:</legend>";
+							lab=lab+"Lab name: "+name_lab+"<br/>";
+							lab=lab+"Report_type: "+report_type+"<br/>";
+							lab=lab+"Date: "+date+"<br/>";
+							lab=lab+"Impressions: "+impressions+"<br/>";
+							lab=lab+"Findings: "+findings+"<br/>";
+							
+							$("#data #Labdetails").html(lab);
+												
+							$("#data div").show();
+							$("#ok").show();
+						
+						
+
+		});
+		});
+	</script>
+<div>
+	
+	<div id="header">
+	
+	</div>
+	
+<div id="blocks">
+	<div class="col-md-1" id="home"><a id="home" href="http://localhost:8081/home.html">Home</a></div><br>
+	</div>
+	
+	
+	<div id="data" style="display: none" class='container'>
+		<p id="init" ></p>
+		<div id="header2"  class="inner"></div>
+		<!--<div id="gendetails"  class="inner"></div>-->
+		<div id="Presdetails"  class="inner"></div>
+		<div id="Labdetails"  class="inner"></div>
+	
+		<button id="ok" style="display: none" >OK</button>
+	</div>
+	<form action="med_providerr" method="GET">
+	<div id="access" style="display:none">
+	<table id="tblAccess">
+	<tr>
+	<td>Username: </td>
+	<td><p id="Username"></p></td>
+	</tr>
+	<tr>
+	<td><label for="provider">Enter Provider: </label></td>
+	<td>
+	
+
+	</td>
+	</tr>
+	<tr></tr>
+	<tr>
+	<td><label for="privatekey">Patient: </label></td>
+	<td><input type="text" name="privatekey" id="privatekey" value="<%= user.name %>" /><br/></td>
+	</tr>
+	<tr><td><button id="approve" style="display: none">Approve</button></td>
+	</form>
+	<td><button id="close" style="display: none">Cancel</button></td></tr>
+	</table>
+	</div>
+	
+	
+</div>
+
+</body>
+</html>

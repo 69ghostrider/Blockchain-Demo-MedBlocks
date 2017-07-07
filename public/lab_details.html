@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<style>
+		table {
+			padding: 20px;
+			background-color: #ccffff;
+			align: center;
+			font-family: verdana;
+			box-shadow: 2px 2px 2px grey;
+		}
+
+		label {
+			font-family: verdana;
+			font-size: 14px;
+			color: #595959;
+		}
+	</style>
+	<script>
+		$('.view_details').click(function () {
+			$.get('http://127.0.0.1:8081/view_details', {}, function (data) {
+				console.log(data);
+				document.getElementById("display_details").innerHTML = data;
+			});
+		});
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<center>
+		<div class="container">
+			<h2>General Details</h2>
+
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Prescription Details</a>
+						</h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<form action="prescription_details" method="GET">
+								<table>
+									<tr>
+										<td><label>Name</label></td>
+										<td> <input type="text" name="name" /></td>
+									</tr>
+
+									<tr>
+										<td><label>Disease</label></td>
+										<td> <input type="text" name="disease" /> </td>
+									</tr>
+
+									<tr>
+										<td><label>Medication</label></td>
+										<td> <input type="textarea" name="medication" /></td>
+									</tr>
+
+									<tr>
+										<td><label>Duration</label></td>
+										<td> <input type="textarea" name="duration" /></td>
+									</tr>
+
+									<tr>
+										<td><input type="submit" /></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Lab Details</a>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body">
+							<form action="lab_details" method="GET">
+								<table>
+									<tr>
+										<td><label>Name</label></td>
+										<td> <input type="text" name="u_name" /></td>
+									</tr>
+									<tr>
+										<td><label>Name of Lab</label></td>
+										<td> <input type="text" name="lab_name" /></td>
+									</tr>
+
+									<tr>
+										<td><label>Report Type</label></td>
+										<td> <input type="textarea" name="report_type" /></td>
+									</tr>
+									<tr>
+										<td><label>Date</label></td>
+										<td> <input type="date" name="r_date" /> </td>
+									</tr>
+									<tr>
+										<td><label>Impression</label></td>
+										<td> <input type="textarea" name="impression" /></td>
+									</tr>
+									<tr>
+										<td><label>Findings</label></td>
+										<td> <input type="textarea" name="findings" /></td>
+									</tr>
+									<tr>
+										<td><input type="submit" /></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">View Details</a>
+						</h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<div class="panel-body">
+							<form action="view_details" method="GET">
+								<table>
+									<tr>
+										<td id="display_details">Hello node</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</center>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<html>
+
+<head>
+
+    <title>formP</title>
+    <link rel="stylesheet" href="public/css/bootstrap.css">
+    <link rel="SHORTCUT ICON" href="public/css/medblocks_logo.jpg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        
+            <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
+                <div id="wid-id-0">
+
+                    <!-- widget div-->
+                    <div role="content">
+                        <!-- widget content -->
+                        <div class="widget-body">
+
+
+                           <!--  <form id="wizard-1" novalidate="novalidate"> -->
+                                <div id="bootstrap-wizard-1" class="col-sm-12">
+                                   <div class="col-sm-4"></div>
+                                        <div class="col-sm-8">
+                                            <div class="form-bootstrapWizard">
+                                                <ul class="bootstrapWizard form-wizard">
+                                                    <li class="active" data-target="#step1">
+                                                         <a href="#tab1" data-toggle="tab" class="active"> <span class="step">1</span> <span class="title">Prescription Details</span> </a>
+                                                    </li>
+                                                    
+                                                    <li data-target="#step2" class="">
+                                                        <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Laboratory Details</span> </a>
+                                                    </li>
+
+                                                </ul>
+                                            <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab1">
+                                                <br>
+
+                                                <div class="container" style="color: #FFF; text-shadow: 2px 2px #626262; text-align: center;"><br><br>
+                                                    <h1>Prescription Details</h1>
+                                                    <h4>Please fill out the form below</h4>
+                                                </div>
+
+                                                <div class="container">
+                                                    <div class="jumbotron" style="margin-top:20px; border-radius: 0px; background-color: #FCFCFC;">
+
+                                                        
+                                                            <form action = "prescription_details" method ="GET">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                     <span class="" aria-hidden="true"></span>
+                                                                    <span class=""></span>
+                                                                    <label for="inputName">Name </label>
+                                                                    <input type="Name" class="form-control" name="name" id="inputNAME" placeholder="">
+                                                                </div>
+
+
+                                                                <div class="form-group">
+                                                                    <span class="" aria-hidden="true"></span>
+                                                                    <span class=""></span>
+                                                                    <label for="inputName">Disease</label>
+                                                                    <input type="Name" class="form-control" name="disease" id="inputNAME" placeholder="">
+                                                                </div>
+                                                         </div>  
+                                                         <div class="col-md-6"> 
+                                                                <div class="form-group">
+                                                                    <span class="" aria-hidden="true"></span>
+                                                                    <span class=""></span>
+                                                                    <label for="">Medication(Ongoing)</label>
+                                                                    <textarea class="form-control" rows="4" name="medication" id="message" placeholder=""></textarea>
+                                                                </div>
+                                                          </div>
+                                                          <div class="col-md-6"> 
+                                                                    <div class="form-group ">
+                                                                        <span class="" aria-hidden="true"></span>
+                                                                        <span class=""></span>
+                                                                        <label for="date">Duration</label>
+                                                                        <input type="text" class="form-control" name="duration" id="date" placeholder="in monmths(eg: 22 months )">
+                                                                    </div>
+                                                         </div>
+
+                                                                <div class="form-actions">
+                                                                    <div class="row">
+                                                                     <div class="col-sm-5"></div>
+                                                                        <div class="col-sm-7"><br>
+                                                                            <button type="submit" class="button button-block">Submit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                   
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           
+                                            <div class="tab-pane" id="tab2">
+                                                <br>
+
+                                                <div class="container" style="color: #FFF; text-shadow: 2px 2px #626262; text-align: center;"><br><br>
+                                                    <h1>Laboratory Details</h1>
+                                                    <h4>Please fill out the form below</h4>
+                                                </div>
+
+                                                <div class="container">
+                                                    <div class="jumbotron" style="margin-top:20px; border-radius: 0px; background-color: #FCFCFC;">
+
+                                                    
+                                                        
+                                                            <form action="lab_details" method="GET">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <span class="" aria-hidden="true"></span>
+                                                                    <span class=""></span>
+                                                                    <label for="">Name </label>
+                                                                    <input type="Name" class="form-control" name="u_name" id="inputNAME" placeholder="">
+                                                                </div>
+                                                                
+                                                                <div class="form-group">
+                                                                    <span class="" aria-hidden="true"></span>
+                                                                    <span class=""></span>
+                                                                    <label for="inputName">Name of Lab</label>
+                                                                    <input type="Name" class="form-control" name="lab_name" id="inputNAME" placeholder="">
+                                                                </div>
+                                                        </div>
+                                                    
+                                                   
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <span class="" aria-hidden="true"></span>
+                                                                    <span class=""></span>
+                                                                    <label for="">Impressions</label>
+                                                                    <textarea class="form-control" rows="2" name="impression" id="message" placeholder=""></textarea>
+                                                                </div>
+                                                                <div class="form-group ">
+                                                                        <span class="" aria-hidden="true"></span>
+                                                                        <span class=""></span>
+                                                                        <label for="date">Date</label>
+                                                                        <input type="date" class="form-control" name="r_date" id="date" placeholder="DD/MM/YYYY">
+                                                                 </div>
+                                                         </div>
+                                                   
+                                                    
+                                                          <div class="col-md-6">
+                                                                  <div class="form-group">
+                                                                        <span class="" aria-hidden="true"></span>
+                                                                        <span class=""></span>
+                                                                        <label for="inputName">Report Type</label>
+                                                                        <textarea class="form-control" rows="2" name="report_type" id="message" placeholder=""></textarea>
+                                                                   </div>
+                                                          </div>
+                                                  
+                                                   
+                                                                <div class="col-md-8">
+                                                       
+                                                                    <div class="form-group ">
+                                                                        <span class="" aria-hidden="true"></span>
+                                                                        <span class=""></span>
+                                                                        <label for="">Findings</label>
+                                                                        <textarea class="form-control" rows="3" name="findings" id="message" placeholder=""></textarea>
+                                                                    </div>
+                                                                </div>
+                                                    
+                                                                <div class="form-actions">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6"></div>
+                                                                        <div class="col-sm-6"><br>
+                                                                            <button type="submit" class="button button-block">Submit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </form> -->
+                            </div>
+                            <!-- end widget content -->
+                        </div>
+                        <!-- end widget div -->
+                   
+                    <!-- end widget -->
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

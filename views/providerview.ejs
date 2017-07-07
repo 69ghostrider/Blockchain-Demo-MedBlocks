@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+
+    <title>register</title>
+    <link rel="stylesheet" href="public/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+    />
+    <link rel="stylesheet" href="bootstrap.css">
+
+</head>
+
+<body background="img/slide-2.jpg">
+
+
+    <div class="container" style="color: #FFF; text-shadow: 2px 2px #626262; text-align: center;"><br>
+        <h1>MEDICAL PROVIDER</h1>
+        <h4>Please Choose a patient</h4>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron" style="margin-top:20px; border-radius: 0px; background-color: #FCFCFC;">
+           <div class="row">
+                <div class="col-md-3">
+                    <form action="/med_view" method="GET">
+
+                     <div class="col-ms-6">
+                       <div class="form-group">
+                       
+                          <label for="Choose Patient Name: ">Name</label>
+                          <select name="patientName" id="patientName">
+							<%for(var i=0;i<patientArr.length;i++){%>
+							<option value='<%= patientArr[i].name%>'><%= patientArr[i].name%></option>
+							<%}%>
+						</select>
+                        </div>
+
+
+                     
+                     
+
+              
+                          
+                        <div class="form-actions">
+                         <br>
+                          
+                          <div class="col-md-6">
+                              <button type="submit" class="button button-block">Submit</button>
+                          </div>
+                          
+                        </div>
+                        </div>
+
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>   
+            </div>
+</body>
+
+</html>
