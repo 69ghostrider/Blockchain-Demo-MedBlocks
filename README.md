@@ -24,5 +24,5 @@ Contributors
 •	Joshua Salema
 •	Mamata Joshi
 •	Melitta Dsouza
-•	Rhea Singh  
+•	Rhea Singh    
 
